@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { Route, NavLink } from 'react-router-dom'
+import { Route, NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { incrementAverage } from '../redux/redux';
 
-export default class Average extends Component {
+class Average extends Component {
   render() {
     return (
       <>
@@ -14,21 +16,27 @@ export default class Average extends Component {
                 <div className="card-body">
                   <h4 className="card-title">Course 1</h4>
                   <p className="card-text text-muted">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <NavLink to="/basket" className="btn btn-dark">Book Now!</NavLink>
+                  <NavLink to="/basket"
+                    onClick={this.props.incrementAverage}
+                    className="btn btn-dark">Book Now!</NavLink>
                 </div>
               </div>
               <div className="card">
                 <div className="card-body">
                   <h4 className="card-title">Course 2</h4>
                   <p className="card-text text-muted">This card has supporting text below as a natural lead-in to additional content.</p>
-                  <NavLink to="/basket" className="btn btn-dark align-self-end">Book Now!</NavLink>
+                  <NavLink to="/basket"
+                    onClick={this.props.incrementAverage}
+                    className="btn btn-dark align-self-end">Book Now!</NavLink>
                 </div>
               </div>
               <div className="card">
                 <div className="card-body">
                   <h4 className="card-title">Course 3</h4>
                   <p className="card-text text-muted">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                  <NavLink to="/basket" className="btn btn-dark">Book Now!</NavLink>
+                  <NavLink to="/basket"
+                    onClick={this.props.incrementAverage}
+                    className="btn btn-dark">Book Now!</NavLink>
                 </div>
               </div>
             </div>
@@ -39,3 +47,11 @@ export default class Average extends Component {
     );
   }
 }
+
+const mapDispatchToProps = dispatch => {
+    return {
+      incrementAverage: () => dispatch(incrementAverage())
+    }
+  }
+
+export const AverageContainer = connect(null, mapDispatchToProps)(Average)

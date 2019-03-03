@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { Route, NavLink } from 'react-router-dom';
 import Info from './Info';
+import { connect } from 'react-redux';
+import { incrementBeginner } from '../redux/redux';
 
-export default class Beginner extends Component {
+
+class Beginner extends Component {
   render() {
     return (
       <>
@@ -17,7 +20,9 @@ export default class Beginner extends Component {
               <div className="card-body">
                 <h4 className="card-title">Course 1</h4>
                 <p className="card-text text-muted">This is a wider card with supporting text below as a n to additionaler.</p>
-                <NavLink to="/basket" className="btn btn-dark mr-3">Book Now!</NavLink>
+                <NavLink to="/basket"
+                    onClick={this.props.incrementBeginner}
+                    className="btn btn-dark mr-3">Add to Cart</NavLink>
                 <NavLink to="/beginner/course-1" className="btn border-dark">more Info</NavLink>
               </div>
             </div>
@@ -26,7 +31,9 @@ export default class Beginner extends Component {
               <div className="card-body">
                 <h4 className="card-title">Course 2</h4>
                 <p className="card-text text-muted">This card has supporting text below as a natural lead-in tot.</p>
-                <NavLink to="/basket" className="btn btn-dark mr-3">Book Now!</NavLink>
+                <NavLink to="/basket"
+                  onClick={this.props.incrementBeginner}
+                  className="btn btn-dark mr-3">Add to Cart</NavLink>
                 <NavLink to="/beginner/course-2" className="btn border-dark">more Info</NavLink>
               </div>
             </div>
@@ -35,7 +42,9 @@ export default class Beginner extends Component {
               <div className="card-body">
                 <h4 className="card-title">Course 3</h4>
                 <p className="card-text text-muted">This is a wider card with supporting text below as a natural lcontent. </p>
-                <NavLink to="/basket" className="btn btn-dark mr-3">Book Now!</NavLink>
+                <NavLink to="/basket"
+                  onClick={this.props.incrementBeginner}
+                  className="btn btn-dark mr-3">Add to Cart</NavLink>
                 <NavLink to="/beginner/course-3" className="btn border-dark">more Info</NavLink>
               </div>
             </div>
@@ -51,3 +60,11 @@ export default class Beginner extends Component {
     );
   }
 }
+
+const mapDispatchToProps = dispatch => {
+    return {
+      incrementBeginner: () => dispatch(incrementBeginner())
+    }
+  }
+
+export const BeginnerContainer = connect(null, mapDispatchToProps)(Beginner)
