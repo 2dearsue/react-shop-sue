@@ -7,18 +7,16 @@ import { incrementBeginner,
           decrementAverage,
           incrementAdvanced,
           decrementAdvanced} from '../redux/redux';
-// import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 class Basket extends Component {
   render() {
     return (
         <>
-          <div className="jumbotron text-center">
-            <h3>Basket</h3>
-          </div>
+          <h3 className="text-center mb-5 display-4">Cart</h3>
 
           <div className="container col-4">
-            <table className="table table-bordered">
+            <table className="table table-bordered mb-5">
               <thead>
                 <tr>
                   <th>#</th>
@@ -77,6 +75,12 @@ class Basket extends Component {
           </div>
 
           <h3 className="list-group-item mt-3 bg-info text-white text-center">You have a total of <span>{this.props.totalCost}</span><span> €</span></h3>
+
+          <div className="text-center mt-5">
+            <NavLink to="/logout" className="btn btn-light border border-info"
+                    onClick={this.props.logout}>Submit Order
+            </NavLink>
+          </div>
         </>
     );
   }
@@ -90,7 +94,7 @@ const mapStateToProps = state => {
     totalCost: state.totalCost,
     costBeginner: state.costBeginner,
     costAverage: state.costAverage,
-    costAdvanced: state.costAdvanced
+    costAdvanced: state.costAdvanced,
   }
 }
 

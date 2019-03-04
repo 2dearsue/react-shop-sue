@@ -9,31 +9,31 @@ export default class Welcome extends Component {
     return (
       <>
         <div className="Jumbotron">
-          <h3 className="display-5 text-center text-dark text-uppercase">Book your course here:</h3>
+          <h3 className="display-5 text-center text-dark">Book your course here:</h3>
 
             <div className="card-deck w-80 mx-auto">
 
-              <div className="card text-white bg-secondary m-3 d-inline-block">
+              <div className="card border border-dark m-3 d-inline-block">
                 <div className="card-body text-center ">
-                  <h4 className="card-title text-light">Start now</h4>
+                  <h4 className="card-title lead text-uppercase">Start now</h4>
                   <img className="card-img" src={Näh1} alt="Card" />
                   <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                   <NavLink to="/beginner" className="btn btn-dark">Book Now!</NavLink>
                 </div>
               </div>
 
-              <div className="card text-white bg-secondary m-3 d-inline-block">
+              <div className="card border border-dark m-3 d-inline-block">
                 <div className="card-body text-center ">
-                  <h4 className="card-title text-light">Go further</h4>
+                  <h4 className="card-title lead text-uppercase">Go further</h4>
                   <img className="card-img" src={Näh3} alt="Card" />
                   <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                   <NavLink to="/average" className="btn btn-dark">Book Now!</NavLink>
                 </div>
               </div>
 
-              <div className="card text-white bg-secondary m-3 d-inline-block">
+              <div className="card border border-dark m-3 d-inline-block">
                 <div className="card-body text-center ">
-                  <h4 className="card-title text-light">Get professional</h4>
+                  <h4 className="card-title lead text-uppercase">Get professional</h4>
                   <img className="card-img" src={Näh2} alt="Card" />
                   <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                   <NavLink to="/advanced" className="btn btn-dark">Book Now!</NavLink>

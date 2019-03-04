@@ -8,7 +8,9 @@ const initialState = {
   counterAverage: 0,
   costAverage: 0,
   counterAdvanced: 0,
-  costAdvanced: 0
+  costAdvanced: 0,
+  isRedirectSet: false,
+  logout: false
      };
 
 //Define reducer and pass initial state there, just return state in any case
@@ -52,6 +54,14 @@ const reducer = (state = initialState, action) => {
       updatedState.counterAdvanced = state.counterAdvanced - 1;
       return updatedState;
 
+    // case 'LOGOUT':
+    //   updatedState.logout = true;
+    //   return updatedState;
+
+    case 'REDIRECT':
+      updatedState.isRedirectSet = true;
+      return updatedState;
+
     default:
     return state;
   }
@@ -83,6 +93,14 @@ export const decrementAdvanced = () => {
   return {type: 'DECADV'}
 }
 
+// export const logout = () => {
+//   return {type: 'LOGOUT'}
+// }
+
+export const isRedirectSet = () => {
+  return {type: 'REDIRECT'}
+}
+
 // create the store with this specific manager
 export const store = createStore(reducer);
 
@@ -95,6 +113,8 @@ store.dispatch(incrementAverage());
 store.dispatch(decrementAverage());
 store.dispatch(incrementAdvanced());
 store.dispatch(decrementAdvanced());
+// store.dispatch(logout());
+store.dispatch(isRedirectSet());
 
 
 

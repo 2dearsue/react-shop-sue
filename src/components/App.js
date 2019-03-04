@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import Welcome from './Welcome';
 import NavList from './NavList';
-import {BasketContainer} from './Basket';
-import {BeginnerContainer} from './Beginner';
-import {AdvancedContainer} from './Advanced';
-import {AverageContainer} from './Average';
+import { BasketContainer } from './Basket';
+import { BeginnerContainer } from './Beginner';
+// import Info from './Info';
+import { AdvancedContainer } from './Advanced';
+import { AverageContainer } from './Average';
+import { LogoutContainer } from './Logout';
 import { BrowserRouter, Route, Switch, NavLink } from 'react-router-dom';
 import { FaShoppingBasket } from 'react-icons/fa';
 
@@ -17,6 +19,7 @@ export default class App extends Component {
           <NavList />
           <NavLink to="/basket"><FaShoppingBasket className="basket text-dark"/></NavLink>
           <Route path="/basket" render= {() => <BasketContainer /> } />
+          <Route path="/logout" render= {() => <LogoutContainer /> } />
 
           <Route exact path="/" render= {() => <Welcome /> } />
 
