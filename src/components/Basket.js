@@ -6,7 +6,7 @@ import { incrementBeginner,
           incrementAverage,
           decrementAverage,
           incrementAdvanced,
-          decrementAdvanced} from '../redux/redux';
+          decrementAdvanced } from '../redux/redux';
 import { NavLink } from 'react-router-dom';
 
 class Basket extends Component {
@@ -77,8 +77,7 @@ class Basket extends Component {
           <h3 className="list-group-item mt-3 bg-info text-white text-center">You have a total of <span>{this.props.totalCost}</span><span> €</span></h3>
 
           <div className="text-center mt-5">
-            <NavLink to="/logout" className="btn btn-light border border-info"
-                    onClick={this.props.logout}>Submit Order
+            <NavLink to="/logout" className="btn btn-light border border-info">Submit Order
             </NavLink>
           </div>
         </>

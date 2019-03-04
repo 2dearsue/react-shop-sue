@@ -3,7 +3,7 @@ import Welcome from './Welcome';
 import NavList from './NavList';
 import { BasketContainer } from './Basket';
 import { BeginnerContainer } from './Beginner';
-// import Info from './Info';
+import Info from './Info';
 import { AdvancedContainer } from './Advanced';
 import { AverageContainer } from './Average';
 import { LogoutContainer } from './Logout';
@@ -23,11 +23,26 @@ export default class App extends Component {
 
           <Route exact path="/" render= {() => <Welcome /> } />
 
-          <Switch>
-            <Route path="/beginner" render= {() => <BeginnerContainer /> } />
-            <Route path="/average" render= {() => <AverageContainer /> } />
-            <Route path="/advanced" render= {() => <AdvancedContainer /> } />
-          </Switch>
+
+            <Switch>
+              <Route exact path="/beginner" render= {() => <BeginnerContainer /> } />
+              <Route path="/beginner/course-1" render= {() => <Info /> } />
+              <Route path="/beginner/course-2" render= {() => <Info /> } />
+              <Route path="/beginner/course-3" render= {() => <Info /> } />
+            </Switch>
+            <Switch>
+              <Route exact path="/average" render= {() => <AverageContainer /> } />
+              <Route path="/average/course-1" render= {() => <Info /> } />
+              <Route path="/average/course-2" render= {() => <Info /> } />
+              <Route path="/average/course-3" render= {() => <Info /> } />
+            </Switch>
+            <Switch>
+            <Route exact path="/advanced" render= {() => <AdvancedContainer /> } />
+            <Route path="/advanced/course-1" render= {() => <Info /> } />
+            <Route path="/advanced/course-2" render= {() => <Info /> } />
+            <Route path="/advanced/course-3" render= {() => <Info /> } />
+            </Switch>
+
         </>
       </BrowserRouter>
     );

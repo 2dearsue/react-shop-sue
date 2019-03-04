@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { incrementAverage } from '../redux/redux';
+import Info from './Info';
 
 class Average extends Component {
   render() {
@@ -30,7 +31,7 @@ class Average extends Component {
                   <NavLink to="/basket"
                     onClick={this.props.incrementAverage}
                     className="btn btn-dark mr-3">Add to Cart</NavLink>
-                    <NavLink to="/average/course-1" className="btn border-dark">more Info</NavLink>
+                    <NavLink to="/average/course-2" className="btn border-dark">more Info</NavLink>
                 </div>
               </div>
               <div className="card mb-2">
@@ -40,7 +41,7 @@ class Average extends Component {
                   <NavLink to="/basket"
                     onClick={this.props.incrementAverage}
                     className="btn btn-dark mr-3">Add to Cart</NavLink>
-                    <NavLink to="/average/course-1" className="btn border-dark">more Info</NavLink>
+                    <NavLink to="/average/course-3" className="btn border-dark">more Info</NavLink>
                 </div>
               </div>
 
@@ -48,8 +49,11 @@ class Average extends Component {
             </div>
           </div>
         } />
-      </>
-    );
+         <Route path="/average/course-1" render={ () => <Info /> } />
+         <Route path="/average/course-2" render={ () => <Info /> } />
+         <Route path="/average/course-3" render={ () => <Info /> } />
+       </>
+     );
   }
 }
 

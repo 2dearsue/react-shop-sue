@@ -14,7 +14,7 @@ class Advanced extends Component {
 
           <div className="container">
           <div className="card-deck">
-            <div className="card">
+            <div className="card mb-2">
               <div className="card-body">
                 <h4 className="card-title">Course 1</h4>
                 <p className="card-text text-muted">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -24,35 +24,36 @@ class Advanced extends Component {
                 <NavLink to="/advanced/course-1" className="btn border-dark">more Info</NavLink>
               </div>
             </div>
-            <div className="card">
+            <div className="card mb-2">
               <div className="card-body">
                 <h4 className="card-title">Course 2</h4>
                 <p className="card-text text-muted">This card has supporting text below as a natural lead-in to additional content.</p>
                 <NavLink to="/basket"
                   onClick={this.props.incrementAdvanced}
                   className="btn btn-dark mr-3">Add to Cart</NavLink>
-                <NavLink to="/advanced/course-1" className="btn border-dark">more Info</NavLink>
+                <NavLink to="/advanced/course-2" className="btn border-dark">more Info</NavLink>
               </div>
             </div>
-            <div className="card">
+            <div className="card mb-2">
               <div className="card-body">
                 <h4 className="card-title">Course 3</h4>
                 <p className="card-text text-muted">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
                 <NavLink to="/basket"
                   onClick={this.props.incrementAdvanced}
                   className="btn btn-dark mr-3">Add to Cart</NavLink>
-                <NavLink to="/advanced/course-1" className="btn border-dark">more Info</NavLink>
+                <NavLink to="/advanced/course-3" className="btn border-dark">more Info</NavLink>
               </div>
             </div>
 
-            <Info />
-            
           </div>
           </div>
         </div>
       } />
-      </>
-    );
+       <Route path="/advanced/course-1" render={ () => <Info /> } />
+       <Route path="/advanced/course-2" render={ () => <Info /> } />
+       <Route path="/advanced/course-3" render={ () => <Info /> } />
+     </>
+   );
   }
 }
 

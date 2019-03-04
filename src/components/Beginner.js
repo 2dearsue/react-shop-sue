@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route, NavLink } from 'react-router-dom';
-// import Info from './Info';
+import Info from './Info';
 import { connect } from 'react-redux';
 import { incrementBeginner } from '../redux/redux';
 
@@ -23,7 +23,7 @@ class Beginner extends Component {
                 <NavLink to="/basket"
                     onClick={this.props.incrementBeginner}
                     className="btn btn-dark mr-3">Add to Cart</NavLink>
-                <Route path="/beginner/course-1" className="btn border-dark">more Info</Route>
+                <NavLink to="/beginner/course-1" className="btn border-dark">more Info</NavLink>
               </div>
             </div>
 
@@ -54,9 +54,11 @@ class Beginner extends Component {
 
         </div>
       } />
-
-      </>
-    );
+       <Route path="/beginner/course-1" render={ () => <Info /> } />
+       <Route path="/beginner/course-2" render={ () => <Info /> } />
+       <Route path="/beginner/course-3" render={ () => <Info /> } />
+     </>
+   );
   }
 }
 

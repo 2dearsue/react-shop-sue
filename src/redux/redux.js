@@ -1,4 +1,4 @@
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 
 // Initialize state
 const initialState = {
@@ -10,7 +10,7 @@ const initialState = {
   counterAdvanced: 0,
   costAdvanced: 0,
   isRedirectSet: false,
-  logout: false
+  // logout: false
      };
 
 //Define reducer and pass initial state there, just return state in any case
@@ -96,13 +96,23 @@ export const decrementAdvanced = () => {
 // export const logout = () => {
 //   return {type: 'LOGOUT'}
 // }
-
-export const isRedirectSet = () => {
-  return {type: 'REDIRECT'}
+const customMiddleWare = store => next => action => {
+  if(action.type === 'REDIRECT') {
+    return setTimeout(() => {
+        store.dispatch({ type: 'REDIRECT' })
+      }, 5000)
+  }
+  next(action);
 }
 
+// export const isRedirectSet = () => {
+//   return setTimeout(() => {
+//     store.dispatch({ type: 'REDIRECT' })
+//   }, 5000)
+// }
+
 // create the store with this specific manager
-export const store = createStore(reducer);
+export const store = createStore(reducer, applyMiddleware(customMiddleWare));
 
 // Get the current state
 console.log(store.getState());
@@ -114,7 +124,11 @@ store.dispatch(decrementAverage());
 store.dispatch(incrementAdvanced());
 store.dispatch(decrementAdvanced());
 // store.dispatch(logout());
-store.dispatch(isRedirectSet());
+  // store.dispatch(isRedirectSet());
+
+  // setTimeout(() => {
+  //   store.dispatch({ type: 'REDIRECT' })
+  // }, 5000)
 
 
 

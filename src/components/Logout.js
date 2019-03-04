@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { isRedirectSet } from '../redux/redux';
+import { applyMiddleware } from '../redux/redux';
 
 class Logout extends Component {
 
@@ -22,8 +22,10 @@ class Logout extends Component {
         </div>
       </div>
       } />
-     </>
 
+      {this.props.applyMiddleware && <Redirect to="/" />}
+
+     </>
    );
  }
 }
@@ -34,7 +36,11 @@ const mapStateToProps = state => {
   }
 }
 
+
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     isRedirectSet: () => dispatch(isRedirectSet()),
+//   }
+// }
+
 export const LogoutContainer = connect(mapStateToProps, null)(Logout)
-
-
-      // {this.props.isRedirectSet && <Redirect to="/" />}
