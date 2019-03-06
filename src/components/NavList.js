@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { NavLink, Redirect } from 'react-router-dom';
-import { FaShoppingBasket } from 'react-icons/fa';
-
+import { NavLink } from 'react-router-dom';
 
 export default class NavList extends Component {
 

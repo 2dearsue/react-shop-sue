@@ -105,15 +105,8 @@ const mapDispatchToProps = dispatch => {
        decrementAverage: () => dispatch(decrementAverage()),
        incrementAdvanced: () => dispatch(incrementAdvanced()),
        decrementAdvanced: () => dispatch(decrementAdvanced()),
+       // decrementAdvanced: ev => dispatch(decrementAdvanced(ev)),
      }
    }
 
  export const BasketContainer = connect(mapStateToProps, mapDispatchToProps)(Basket);
-
-// const mapDispatchToProps = dispatch => {
-//      return {
-//        incrementAverage: () => dispatch(incrementAverage())
-//      }
-//    }
-//
-//  export const AverageContainer = connect(null, mapDispatchToProps)(Average)

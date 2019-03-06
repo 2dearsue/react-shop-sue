@@ -1,4 +1,4 @@
-import { createStore, applyMiddleware } from 'redux';
+import { createStore } from 'redux';
 
 // Initialize state
 const initialState = {
@@ -9,8 +9,6 @@ const initialState = {
   costAverage: 0,
   counterAdvanced: 0,
   costAdvanced: 0,
-  isRedirectSet: false,
-  // logout: false
      };
 
 //Define reducer and pass initial state there, just return state in any case
@@ -24,11 +22,11 @@ const reducer = (state = initialState, action) => {
       updatedState.counterBeginner = state.counterBeginner + 1;
       return updatedState;
 
-      case 'DECBEG':
-        updatedState.totalCost = state.totalCost - 20;
-        updatedState.costBeginner = state.costBeginner - 20;
-        updatedState.counterBeginner = state.counterBeginner - 1;
-        return updatedState;
+    case 'DECBEG':
+      updatedState.totalCost = state.totalCost - 20;
+      updatedState.costBeginner = state.costBeginner - 20;
+      updatedState.counterBeginner = state.counterBeginner - 1;
+      return updatedState;
 
     case 'AVE':
       updatedState.totalCost = state.totalCost + 30;
@@ -93,26 +91,8 @@ export const decrementAdvanced = () => {
   return {type: 'DECADV'}
 }
 
-// export const logout = () => {
-//   return {type: 'LOGOUT'}
-// }
-const customMiddleWare = store => next => action => {
-  if(action.type === 'REDIRECT') {
-    return setTimeout(() => {
-        store.dispatch({ type: 'REDIRECT' })
-      }, 5000)
-  }
-  next(action);
-}
-
-// export const isRedirectSet = () => {
-//   return setTimeout(() => {
-//     store.dispatch({ type: 'REDIRECT' })
-//   }, 5000)
-// }
-
 // create the store with this specific manager
-export const store = createStore(reducer, applyMiddleware(customMiddleWare));
+export const store = createStore(reducer);
 
 // Get the current state
 console.log(store.getState());
@@ -123,15 +103,6 @@ store.dispatch(incrementAverage());
 store.dispatch(decrementAverage());
 store.dispatch(incrementAdvanced());
 store.dispatch(decrementAdvanced());
-// store.dispatch(logout());
-  // store.dispatch(isRedirectSet());
-
-  // setTimeout(() => {
-  //   store.dispatch({ type: 'REDIRECT' })
-  // }, 5000)
-
-
-
 
 // const decrementByNum = (num) => {
 //   return {type: 'DECBYNUM', payload: num}
